@@ -1,0 +1,56 @@
+﻿@model WebApplication2.Models.Libro
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Eliminar Libro";
+}
+
+
+<h1>Eliminar Libro</h1>
+
+<h3>
+    ¿Estás seguro de que deseas eliminar este libro?
+</h3>
+
+<div>
+
+    <dl class="row">
+
+        <dt class="col-sm-3">
+            Título
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.Titulo
+        </dd>
+
+        <dt class="col-sm-3">
+            Autor
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.Autor.Nombre
+        </dd>
+
+    </dl>
+
+    <form asp-action="Delete" method="post">
+
+        <input type="hidden"
+               asp-for="Id" />
+
+        <button type="submit"
+                class="btn btn-danger">
+            Confirmar eliminación
+        </button>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Cancelar
+        </a>
+
+    </form>
+
+</div>

@@ -1,0 +1,72 @@
+﻿@model WebApplication2.Models.Autor
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles del Autor</h1>
+
+<div>
+    <h4>@Model.Nombre</h4>
+
+    <hr />
+
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            Nombre
+        </dt>
+
+        <dd class="col-sm-10">
+            @Model.Nombre
+        </dd>
+
+    </dl>
+</div>
+
+
+<h4>Libros del autor</h4>
+
+@if (Model.Libros != null && Model.Libros.Any())
+{
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Título</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var libro in Model.Libros)
+            {
+                <tr>
+                    <td>
+                        @libro.Titulo
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+}
+else
+{
+    <p>Este autor no tiene libros registrados.</p>
+}
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id"
+   class="btn btn-warning">
+    Editar
+</a>
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+    Volver
+</a>

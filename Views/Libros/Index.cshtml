@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebApplication2.Models.Libro>
+
+@{
+    ViewData["Title"] = "Listado de Libros";
+}
+
+<h1>Libros</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-primary">
+        Nuevo Libro
+    </a>
+</p>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>
+                Título
+            </th>
+
+            <th>
+                Autor
+            </th>
+
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var libro in Model)
+        {
+            <tr>
+
+                <td>
+                    @libro.Titulo
+                </td>
+
+
+                <td>
+                    @libro.Autor.Nombre
+                </td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@libro.Id"
+                       class="btn btn-warning">
+                        Editar
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@libro.Id"
+                       class="btn btn-danger">
+                        Eliminar
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

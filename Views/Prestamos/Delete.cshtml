@@ -1,0 +1,22 @@
+﻿@model WebApplication2.Models.Prestamo;
+
+@{
+    ViewData["Title"] = "Eliminar prestamo";
+}
+
+<h2>Eliminar Prestamo</h2>
+<p>Confirmar ELIMINAR este registro</p>
+<div class="mb-3">
+    <strong>Usuario:</strong>@Model.Usuario?.Nombre
+    <br />
+    <strong>Libro</strong>@Model.Libro?.Titulo
+    <br />
+    <strong>Fecha Préstamo:</strong>@Model.FechaPrestamo.ToShortDateString()
+</div>
+
+<form asp-action="Delete" method="POST">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-primary">Eliminar</button>
+    <a class="btn btn-secondary" href="/Prestamos">Volver</a>
+</form>

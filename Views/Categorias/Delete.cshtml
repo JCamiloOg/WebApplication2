@@ -1,0 +1,54 @@
+﻿@model WebApplication2.Models.Categoria
+@{
+    ViewData["Title"] = "Eliminar Categoría";
+}
+
+<h2>Eliminar Categoría</h2>
+
+
+<div>
+    <h4>¿Seguro que desea eliminar la categoría @Model.Nombre?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Descripción
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nombre
+        </dd>
+        </dl>
+
+    @if (Model.Libros.Any())
+    {
+        <div class="alert alert-warning">
+            Esta categoría tiene
+            <strong>@Model.Libros.Count</strong>
+            libro(s) asociado(s).
+            No podrá ser eliminada.
+        </div>
+        <a asp-action="Index"
+           class="btn btn-secondary mt-3">
+            Volver
+        </a>
+
+    } else
+    {
+        <form asp-action="Delete" method="post">
+
+            <input type="hidden"
+                   asp-for="Id" />
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Confirmar eliminación
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+        </form>
+    }
+</div>
+
+
