@@ -28,7 +28,7 @@
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Nombre</td>
-                <td>@item.TarjetaBiblioteca?.Codigo</td>
+                <td>@item.TarjetaBiblioteca.Codigo</td>
                 <td>
                     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
